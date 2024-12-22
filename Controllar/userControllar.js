@@ -3,7 +3,6 @@ import userSchema, { getAuthontication } from "../Models/userModel.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
-const JWT_SECRET = process.env.JWT_SECRET;
 
 const User = userSchema
 
@@ -31,16 +30,19 @@ export const userRegister = async (req, res) => {
 };
 
 export const userProfile = async (req, res) => {
+    
     try {
-        const token = req.cookies?.token || req.headers.authorization?.split(" ")[1];
+        const token = req.body.headers.authorization
+        
         if (!token) {
             return res.status(403).send("Invalid Token");
         }
 
-        jwt.verify(token, JWT_SECRET, (err, decoded) => {
+        jwt.verify(token, "uber-Clone", (err, decoded) => {
             if (err) {
                 return res.status(403).send("Invalid Token");
             }
+
             res.status(200).send({ status: true, data: decoded });
         });
     } catch (err) {
@@ -68,7 +70,11 @@ export const userLogin = async (req, res) => {
 
         const token = await getAuthontication(user);
         res.cookie("token", token);
-        res.status(200).send("Login successful");
+        res.send({data:{
+            status : "success",
+            token : token
+        }
+    });
     } catch (err) {
         console.error(err);
         res.status(500).send(`Server Error: ${err.message}`);

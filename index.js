@@ -1,6 +1,6 @@
 import express from 'express';
 import { Router } from 'express';
-import { defUlt } from './app.js';
+import { client, defUlt, product, vendor } from './app.js';
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 
@@ -15,6 +15,11 @@ app.use('/', defUlt)
 app.get('/', (req,res)=>{
     res.send(`Server Runing at ${port}`)
 })
+
+app.use('/', vendor)
+app.use('/',client)
+app.use('/', product)
+
 
 
 app.listen(port,console.log(port))
