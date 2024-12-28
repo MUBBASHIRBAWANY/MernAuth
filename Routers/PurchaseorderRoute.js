@@ -1,5 +1,5 @@
 import exprees from 'express'
-import { getAllPurchaseOrders, postPurchaseOrder } from '../Controllar/PurchaseOrderControllar.js';
+import { deletePurchaseOrdr, getAllPurchaseOrders, getPurchaseOrderByid, postPurchaseOrder, updatePurchaseOrder } from '../Controllar/PurchaseOrderControllar.js';
 
 
 const purchaseOrderRoute = exprees.Router()
@@ -8,6 +8,9 @@ const purchaseOrderRoute = exprees.Router()
 
 purchaseOrderRoute.get('/', getAllPurchaseOrders)
 purchaseOrderRoute.post('/', postPurchaseOrder)
+purchaseOrderRoute.delete ('/purchaseOrder/:id', deletePurchaseOrdr )
+purchaseOrderRoute.put("/updatepo/:id", updatePurchaseOrder )
+purchaseOrderRoute.get("/pobyid/:id", getPurchaseOrderByid)
 
 // Get purchase order by ID
 
