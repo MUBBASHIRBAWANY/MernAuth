@@ -6,6 +6,8 @@ import vendorRoutes from './Routers/vendorRoute.js'
 import ClientRoutes from './Routers/ClientRoutes.js'
 import productRoutes from './Routers/ProductRoutes.js'
 import focRoute from './Routers/focRoute.js'
+import purchaseOrderRoute from './Routers/PurchaseorderRoute.js'
+
 dotenv.config()
 
 const router = express.Router()
@@ -21,3 +23,4 @@ export const vendor = app.use('/vendor', vendorRoutes )
 export  const client = app.use('/client', ClientRoutes)
 export const product = app.use('/product', productRoutes)
 export const foc = app.use('/foc', focRoute)
+export const purchaseOrder = app.use('/purchaseorder', purchaseOrderRoute )

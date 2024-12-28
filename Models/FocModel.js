@@ -5,13 +5,13 @@ const FOCShema = mongoose.Schema({
         type : String,
         required : true
     },
-    conert_From : {
+    convert_From : {
         type : String,
-        required : true
+        
     },
-    conert_To : {
+    convert_To : {
         type : String,
-        required : true
+        
     }
 })
 
