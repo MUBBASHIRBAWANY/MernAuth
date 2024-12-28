@@ -27,3 +27,35 @@ export const postPurchaseOrder = async (req,res) =>{
         res.send(error)
     }
 }
+
+
+export const deletePurchaseOrdr = async () =>{
+    // Implement delete logic here
+ try{
+    const purchaseOrder = await PurchaseOrderModel.findByIdAndDelete(req.params.id)
+    res.send(purchaseOrder)
+ }catch(err){
+    console.log(err)
+ }
+}
+
+
+export const updatePurchaseOrder = async (req,res) =>{
+    try{
+        const purchaseOrder = await PurchaseOrderModel.findByIdAndUpdate(req.params.id, req.body, {new:true})
+        res.send(purchaseOrder)
+    }catch(err){
+        res.send(err)
+    }
+}
+
+
+export const getPurchaseOrderByid = async (req,res) => {
+            try{
+            const product = await PurchaseOrderModel.findById(req.params.id)
+            res.send(product)
+        }catch(err){
+            res.send(err)
+        }
+    }
+}
