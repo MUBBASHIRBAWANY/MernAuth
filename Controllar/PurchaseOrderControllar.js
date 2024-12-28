@@ -58,4 +58,3 @@ export const getPurchaseOrderByid = async (req,res) => {
             res.send(err)
         }
     }
-}
