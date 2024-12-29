@@ -58,3 +58,12 @@
                 res.send(err)
             }
         }
+        export const lastPo = async (req, res) =>{
+            try{
+                const lastPo = await PurchaseOrderModel.findOne().sort({_id:-1}).limit(1)
+                res.send(lastPo)
+            }catch(err){
+                res.send(err)
+            }
+        }
+        
