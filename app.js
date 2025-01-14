@@ -7,6 +7,7 @@ import ClientRoutes from './Routers/ClientRoutes.js'
 import productRoutes from './Routers/ProductRoutes.js'
 import focRoute from './Routers/focRoute.js'
 import purchaseOrderRoute from './Routers/PurchaseorderRoute.js'
+import ProductQtyRoute from './Routers/ProductQty.js'
 
 dotenv.config()
 
@@ -24,3 +25,5 @@ export  const client = app.use('/client', ClientRoutes)
 export const product = app.use('/product', productRoutes)
 export const foc = app.use('/foc', focRoute)
 export const purchaseOrder = app.use('/purchaseorder', purchaseOrderRoute )
+export const TotalProduct = app.use('/productQty', ProductQtyRoute )
+

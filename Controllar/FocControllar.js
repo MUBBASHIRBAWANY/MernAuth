@@ -11,6 +11,7 @@ export const getAllFoc = async (req,res) =>{
 }
 
 export const postFoc = async (req,res) =>{
+    console.log(req.body)
     try{
         const foc = new FocModel(req.body)
         await FocModel.create(foc)
