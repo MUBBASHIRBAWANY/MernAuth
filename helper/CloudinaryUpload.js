@@ -20,8 +20,14 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params:(req,file)=> {
-        let folder = "uploads/userImage"     
-        return {folder};
+        try{
+            let folder = "uploads/userImage"     
+            return {folder};
+        }catch(err){
+            console.log(err);
+            return {error: "Error in uploading"};
+        }
+        
       
     },
     allowedFormats: ['jpg', 'png', 'jpeg']
