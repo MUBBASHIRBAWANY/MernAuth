@@ -5,7 +5,7 @@ const FOCShema = mongoose.Schema({
         type : String,
         required : true
     },
-    convert_From: {
+    convert_From : {
         type : String,
         
     },
