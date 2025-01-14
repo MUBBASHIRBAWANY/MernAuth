@@ -6,9 +6,10 @@ import bcrypt from "bcrypt";
 
 const User = userSchema
 
-export const userRegister = async (req, res) => {
+export const userRegister  = async (req, res) => {
     try {
-        const { name, email, password, image } = req.body;
+         const { name, email, password} = req.body;
+         const image = req.files?.image?.[0]?.path;
         if (!name || !email || !password) {
             return res.status(400).send("All fields are required");
         }

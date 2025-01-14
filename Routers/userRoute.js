@@ -4,7 +4,9 @@ const userRoute = express.Router()
 
 const app = express()
 
-userRoute.post('/', userRegister)
+userRoute.post('/', uploads.fields([
+    {name: 'image', maxCount: 1},
+]),userRegister)
 userRoute.post('/profile', userProfile)
 userRoute.post('/login', userLogin)
 userRoute.post('/logout', userLogout)
