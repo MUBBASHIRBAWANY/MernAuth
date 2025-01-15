@@ -9,7 +9,7 @@ const User = userSchema
 export const userRegister  = async (req, res) => {
     try {
          const { name, email, password} = req.body;
-         const image = req.files?.image?.[0]?.path;
+         const Userimage = req.files?.image[0]?.path;
         if (!name || !email || !password) {
             return res.status(400).send("All fields are required");
         }
@@ -19,7 +19,7 @@ export const userRegister  = async (req, res) => {
             name,
             email,
             password: hashPassword,
-            imageUrl: image,
+            imageUrl: Userimage,
         });
 
         const token = await getAuthontication(newUser);
